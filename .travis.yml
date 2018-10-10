@@ -1,4 +1,2 @@
 language: java
 script: ant build
-install: ant deps
-ant test
