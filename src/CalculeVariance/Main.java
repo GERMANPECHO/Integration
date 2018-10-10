@@ -3,6 +3,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.Vector;
 
 /*
@@ -14,16 +16,25 @@ import java.util.Vector;
 
 public class Main {
 	
-
+	static double variance =  0;
+	static double moyenne = 0;
+	static String ecart;
+	static String varianceCalcule;
+	
+	
 	public static void main(String[] args) throws IOException {
 		
 		String csvfile = "dt.csv";
 		BufferedReader br = null;
 		String line = "";
-		double moyenne = 0;
-		double variance =  0;
 		double calcVariance;
 		String values = "";
+		
+		DecimalFormat df = new DecimalFormat("#.####");
+		DecimalFormat de = new DecimalFormat("#.##");
+		
+		 df.setRoundingMode(RoundingMode.CEILING);
+		 de.setRoundingMode(RoundingMode.CEILING);
 		
 		Vector<String> vectorValues = new Vector<String>();
 		
@@ -44,20 +55,44 @@ public class Main {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		
 			
-		moyenne = getSomme(values,vectorValues)/Integer.parseInt(values);
+		
+		moyenne = getMoyenne(values,vectorValues);	
+		variance = getVariance(values,vectorValues,moyenne);
+		
+		varianceCalcule = df.format(variance);
+		ecart = de.format(getEcart(variance));
+		
 		System.out.println(" moyenne 10 values :"+  moyenne);
+		System.out.println(" variance 10 values : " + varianceCalcule);
+		System.out.println("l'écart type est :" + ecart);
+		
+		// TODO Auto-generated method stub
+
+	}
+	
+	public static Double getEcart(Double variance) {
+		
+		double ecartCalcule = 0;
+		ecartCalcule = Math.sqrt(variance);
+		
+		return ecartCalcule;
+	}
+	
+	public static Double getVariance(String values, Vector<String> vectorValues,double moyenne) {
 		
 		for( int i=0; i< Integer.parseInt(values); i++ ) {
 			variance = variance + Math.pow((Double.parseDouble(vectorValues.get(i))-moyenne),2);
 		}
 		
-		System.out.println(" variance 10 values : " + (1.0/9.0)*variance);
-		System.out.println("l'écart type est :" + Math.sqrt((1.0/9.0)*variance));
+		return (variance*(1.0/9.0));
+	}
+	
+	public static double getMoyenne(String values,Vector<String> vectorValues) {
 		
-		// TODO Auto-generated method stub
-
+		double calculMoyenne = getSomme(values,vectorValues)/Integer.parseInt(values);
+		
+		return calculMoyenne;
 	}
 	
 	
