@@ -42,7 +42,7 @@ public class Variance {
 	
 	@Test
 	public void valeurInvalide() {
-		assertTrue(!(Main.getVariance(elements, vectorValues,moyenne) < 0));
+		assertTrue(!(Main.getVariance(elements, vectorValues,moyenne)  > 0));
 	}
 	
 
