@@ -22,6 +22,8 @@
         <mkdir dir="bin"/>
         <copy includeemptydirs="false" todir="bin">
             <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.xtend"/>
                 <exclude name="**/*.java"/>
             </fileset>
         </copy>
@@ -53,16 +55,72 @@
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
+    <target name="EcartType">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="Test.EcartType" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="Log330Tp1.classpath"/>
+        </junit>
+    </target>
+    <target name="JUnitCore (1)">
+        <java classname="org.junit.runner.JUnitCore" failonerror="true" fork="yes">
+            <classpath refid="Log330Tp1.classpath"/>
+        </java>
+    </target>
+    <target name="Log330Tp1">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="Test.EcartType" todir="${junit.output.dir}"/>
+            <test name="Test.Moyenne" todir="${junit.output.dir}"/>
+            <test name="Test.TestCalculer" todir="${junit.output.dir}"/>
+            <test name="Test.Variance" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="Log330Tp1.classpath"/>
+        </junit>
+    </target>
     <target name="Main (4)">
         <java classname="CalculeVariance.Main" failonerror="true" fork="yes">
             <classpath refid="Log330Tp1.classpath"/>
         </java>
+    </target>
+    <target name="Moyenne">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="Test.Moyenne" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="Log330Tp1.classpath"/>
+        </junit>
+    </target>
+    <target name="test">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="Test.EcartType" todir="${junit.output.dir}"/>
+            <test name="Test.Moyenne" todir="${junit.output.dir}"/>
+            <test name="Test.TestCalculer" todir="${junit.output.dir}"/>
+            <test name="Test.Variance" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="Log330Tp1.classpath"/>
+        </junit>
     </target>
     <target name="TestCalculer">
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
             <formatter type="xml"/>
             <test name="Test.TestCalculer" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="Log330Tp1.classpath"/>
+        </junit>
+    </target>
+    <target name="Variance">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="Test.Variance" todir="${junit.output.dir}"/>
             <jvmarg line="-ea"/>
             <classpath refid="Log330Tp1.classpath"/>
         </junit>
