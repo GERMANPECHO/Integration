@@ -106,6 +106,10 @@
     <target name="test">
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
+		<classpath>
+          <path refid="classpath.test" />
+          <pathelement location="${test.build.dir}"/>
+        </classpath>
             <formatter type="xml"/>
             <test name="Test.EcartType" todir="${junit.output.dir}"/>
             <test name="Test.Moyenne" todir="${junit.output.dir}"/>
