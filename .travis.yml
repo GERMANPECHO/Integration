@@ -2,4 +2,4 @@ language: java
 jdk:
   - oraclejdk8
 install: ant -buildfile build.xml 
-script: ant EcartType (1)
+script: ant EcartType
