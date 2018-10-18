@@ -71,7 +71,7 @@
             <classpath refid="Log330Pry.classpath"/>
         </junit>
     </target>
-    <target name="Moyenne (1)">
+    <target name="Moyenne" depends="EcartType">
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
 		<classpath location="libraryjar/junit-4.12.jar" />
@@ -82,7 +82,7 @@
             <classpath refid="Log330Pry.classpath"/>
         </junit>
     </target>
-    <target name="TestCalculer (1)">
+    <target name="TestCalculer" depends="Moyenne">
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
 		<classpath location="libraryjar/junit-4.12.jar" />
@@ -93,7 +93,7 @@
             <classpath refid="Log330Pry.classpath"/>
         </junit>
     </target>
-    <target name="Variance (1)">
+    <target name="Variance" depends="TestCalculer">
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
 		<classpath location="libraryjar/junit-4.12.jar" />
