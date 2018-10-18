@@ -14,7 +14,7 @@
   <property name="main.src.dir" value="src" />
   <property name="test.build.dir" value="build/test" />
   <property name="test.src.dir" value="test" />
-  
+  <path id="classpath.base" />
 
   <path id="classpath.test">
     <pathelement location="lib/junit-4.12.jar" />
@@ -114,7 +114,12 @@
     <target name="test">
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
-		<classpath location="${build.dir}" />
+		
+	      <classpath>
+          <path refid="classpath.test" />
+          <pathelement location="${Test.build.dir}"/>
+          </classpath>
+		
 		<classpath location="lib/junit-4.12.jar" />
 		<classpath location="lib/hamcrest-core-1.3.jar" />
             <formatter type="xml"/>
