@@ -60,7 +60,7 @@
             <classpath refid="Log330Pry.classpath"/>
         </java>
     </target>
-    <target name="EcartType">
+    <target name="EcartType" depends="Main">
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
 		<classpath location="lib/junit-4.12.jar" />
