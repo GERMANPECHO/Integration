@@ -1,2 +1,5 @@
 language: java
-install: ant -buildfile build.xml test
+jdk:
+  - oraclejdk8
+install: ant -buildfile build.xml 
+script: ant build
