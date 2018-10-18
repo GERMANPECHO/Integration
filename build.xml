@@ -76,7 +76,6 @@
     <target name="Log330Tp1">
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
-		<classpath refid="test.path" />
 		<classpath location="${build.dir}" />
 		<classpath location="lib/junit-4.12.jar" />
 		<classpath location="lib/hamcrest-core-1.3.jar" />
@@ -106,7 +105,6 @@
     <target name="test">
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
-		<classpath refid="test.path" />
 		<classpath location="${build.dir}" />
 		<classpath location="lib/junit-4.12.jar" />
 		<classpath location="lib/hamcrest-core-1.3.jar" />
