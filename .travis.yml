@@ -1,3 +1,2 @@
 language: java
-install: ant -buildfile build.xml 
-script: ant test
+install: ant -buildfile build.xml test
