@@ -1,11 +1,14 @@
 package CalculeVariance;
 import java.io.BufferedReader;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.Vector;
+
+import CalculeCorrelation.Correlation;
 
 /*
  * NOM:PECHO SANCHEZ
@@ -24,10 +27,11 @@ public class Main {
 	
 	public static void main(String[] args) throws IOException {
 		
-		String csvfile = "dt.csv";
+		String csvfile = "dataCorrelation.csv";
 		BufferedReader br = null;
 		String line = "";
 		double calcVariance;
+		String valuesNumber = "";
 		String values = "";
 		
 		DecimalFormat df = new DecimalFormat("#.####");
@@ -37,19 +41,23 @@ public class Main {
 		 de.setRoundingMode(RoundingMode.CEILING);
 		
 		Vector<String> vectorValues = new Vector<String>();
+		Vector<String> vectorValuesY = new Vector<String>();
 		
 		try {
 			
 			LireFichier lecture = new LireFichier(csvfile);
 			br = new BufferedReader(lecture.getReader());
 			
-			values = br.readLine();
+			valuesNumber = br.readLine();
+			String[] valuesNumberQt = valuesNumber.split(";");
+			values = valuesNumberQt[0];
 			
 			while( (line = br.readLine()) != null ) {
 				
-				String data = line;
-				System.out.println(data);
-				vectorValues.add(data);
+				String[] data = line.split(";");
+				System.out.println( " x value " + data[0] + " y value " + data[1]);
+				vectorValues.add(data[0]);
+				vectorValuesY.add(data[1]);
 				
 			}
 		} catch (FileNotFoundException e) {
@@ -68,7 +76,17 @@ public class Main {
 		System.out.println("l'écart type est :" + ecart);
 		
 		// TODO Auto-generated method stub
+		
+		System.out.println("resultat coeff correlation X et Y  " + calculerCorrelation(vectorValuesY,vectorValues));
 
+	}
+	
+	public static double calculerCorrelation(Vector<String> vectorY, Vector<String> vectorX) {
+		
+		Correlation coefficient = new Correlation(vectorY,vectorX);		
+		coefficient.afficherValues();
+		
+		return coefficient.calculerCoeffCorrelation();
 	}
 	
 	public static Double getEcart(Double variance) {
