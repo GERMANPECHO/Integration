@@ -2,7 +2,12 @@ package CalculeCorrelation;
 
 import java.util.Vector;
 
-public class Correlation {
+/*
+ * Class Correlation
+ *  
+ */
+
+    public class Correlation {
 	
 	private Vector<String> vectValuesY;
 	private Vector<String> vectValuesX;
@@ -10,6 +15,8 @@ public class Correlation {
 	private Vector<Double> vectorYcarre;
 	private Vector<Double> vectorXY;
 	private int correlationNumberOfValues;
+	private double sumXY;
+	private double sumXcarre;
  	
 	public Correlation(Vector<String> vectValues, Vector<String> vectVal) {
 		
@@ -28,7 +35,12 @@ public class Correlation {
 			
 	}
 	
-	
+	/*
+	 *  fonction CalculerSommeX
+	 *  addition de tous les valeurs x
+	 *  precon: vectorValuesX
+	 *  post: double
+	 */
 	
 	public double calculerSommeX() {
 		
@@ -41,7 +53,24 @@ public class Correlation {
 		return totalSommeX;
 	}
 	
-public double calculerSommeY() {
+	/*
+	 * function calculerMoyenneX
+	 */
+	
+	public double calculerMoyenneX() {
+		
+		return calculerSommeX()/correlationNumberOfValues;
+		
+	}
+	
+	/*
+	 *  fonction calculerSommeY
+	 *  addition de tous les valeurs Y
+	 *  precon: vectorValuesY
+	 *  post: double
+	 */
+	
+    public double calculerSommeY() {
 		
 		double totalSommeY = 0;
 		
@@ -53,10 +82,28 @@ public double calculerSommeY() {
 		
 		return totalSommeY;
 	}
+    
+    /*
+     * function calculerMoyenneY
+     */
+    
+	public double calculerMoyenneY() {
+		
+		return calculerSommeY()/correlationNumberOfValues;
+		
+	}
+    
+    
+    /*
+	 *  fonction Calculercarre de X
+	 *  precon: vectorValuesX
+	 *  post: vector<Double>
+	 */
 
-public Vector<Double> calculerXcarre() {
+   public Vector<Double> calculerXcarre() {
 	
 	double valueXcarre = 0;
+	double sum = 0;
 	
 	vectorXcarre = new Vector<Double>();
 	
@@ -65,13 +112,26 @@ public Vector<Double> calculerXcarre() {
 		
 	       valueXcarre = Double.parseDouble(vectValuesX.get(i));
 	       valueXcarre = Math.pow(valueXcarre, 2);
+	       sum = sum + valueXcarre;
 	       vectorXcarre.add(valueXcarre);
 	}
 	
+	sumXcarre = sum;
+	
 	return vectorXcarre;
 }
+   
+   public double getSommeXcarre() {
+	   return sumXcarre;
+   }
+   
+   /*
+	 *  fonction Calculercarre de Y
+	 *  precon: vectorValuesY
+	 *  post: vector<Double>
+	 */
 
-public Vector<Double> calculerYcarre() {
+   public Vector<Double> calculerYcarre() {
 	
 	double valueYcarre = 0;
 	
@@ -85,13 +145,21 @@ public Vector<Double> calculerYcarre() {
 	       vectorYcarre.add(valueYcarre);
 	}
 	
+	
 	return vectorXcarre;
 }
 
+   /*
+	 *  fonction CalculerXY
+	 *  precon: vectorValuesY et vectorValuesX
+	 *  post: vector<Double>
+	 */
+   
 
-public Vector<Double> calculerXY() {
+   public Vector<Double> calculerXY() {
 	
 	double valueXY = 0;
+	double sum = 0;
 	
 	vectorXY = new Vector<Double>();
 	
@@ -100,13 +168,26 @@ public Vector<Double> calculerXY() {
 		 String temp = vectValuesY.get(i).replace(',','.');
 	     
 	       valueXY = Double.parseDouble(vectValuesX.get(i))*Double.parseDouble(temp);
+	       sum = sum + valueXY;
 	       vectorXY.add(valueXY);
 	}
 	
+	sumXY = sum;
+	
 	return vectorXY;
 }
+   
+   
+   public double getSumXY() {
+	   
+	  return sumXY;
+   }
+   /*
+    * fonction calculerCoeffCorrelation
+    * return double
+    */
 
-public double calculerCoeffCorrelation() {
+    public double calculerCoeffCorrelation() {
 	
 	double sumMultXY = 0;
 	double sumMultXYN = 0;
@@ -120,9 +201,11 @@ public double calculerCoeffCorrelation() {
 	calculerYcarre();
 	
 	for ( int j = 0; j < correlationNumberOfValues; j++) {
+		
 		sumMultXY = sumMultXY + calculerXY().get(j);
 		sommeXcarre = sommeXcarre + vectorXcarre.get(j);
 		sommeYcarre = sommeYcarre + vectorYcarre.get(j);
+		
 	}
 	
     sumMultXYN = sumMultXY*correlationNumberOfValues;

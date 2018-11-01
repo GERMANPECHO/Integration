@@ -55,23 +55,37 @@ public class TestCorrelation {
 	correlationTest = new Correlation(vectorValuesY,vectorValues);
 	
 	}
+	
+	/*
+	 * test pour vérifier si le coeff est inferieur a 1
+	 */
 
 	@Test
 	public void borneSuperieure() {
 		assertTrue(Main.calculerCorrelation(vectorValuesY, vectorValues) <= 1);
 	}
 	
+	/*
+	 * test pour vérifier si le coeff est inferieur a > 0
+	 */
+	
 	@Test
 	public void borneInferieure() {
 		assertTrue(Main.calculerCorrelation(vectorValuesY, vectorValues) >= 0);
 	}
 	
-	
+	/*
+	 * test pour vérifier si le coeff n'est pas superieur a 1 max value coeff
+	 */
+		
 	@Test
 	public void valeurInvalide() {
 		assertTrue(!(Main.calculerCorrelation(vectorValuesY, vectorValues) > 1));
 	}
 	
+	/*
+	 * test pour vérifier si la quantité d'elements est la même
+	 */
 	
 	@Test
 	public void numeroDesElements() {
