@@ -89,7 +89,7 @@ public class Main {
         System.out.println(regression.getCoeffB0());
         System.out.println(regression.getCoeffB1());
         
-        Scanner inScanner = new Scanner(System.in);
+/*        Scanner inScanner = new Scanner(System.in);
         
         System.out.println("Donnez-moi un valeur x pour calculer y");
         String valueInX = inScanner.nextLine();
@@ -101,7 +101,7 @@ public class Main {
         String valueInY = inScanner.nextLine();
         
         System.out.println(" resultat X lineal " +
-        regression.getValueX(Integer.parseInt(valueInY)));
+        regression.getValueX(Integer.parseInt(valueInY)));*/
         
        
 	}
