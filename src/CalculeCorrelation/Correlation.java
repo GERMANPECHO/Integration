@@ -26,6 +26,27 @@ import java.util.Vector;
 		correlationNumberOfValues = vectValuesY.size();		
 	}
 	
+	public String qualifierReponse(Double coefficient) {
+		
+		String qualification = "";
+		
+	    if ( 0.9<= coefficient && coefficient <= 1.00 ) {
+	    	qualification = "Très forte à parfaite";
+	    } else if (  0.7<= coefficient && coefficient < 0.9 ) {
+	    	qualification = "Forte à très forte";
+	    } else if ( 0.4<= coefficient && coefficient < 0.7 ) {
+	    	qualification = "Moyenne à forte";
+	    } else if (  0.2<= coefficient && coefficient < 0.4 ) {
+	    	qualification = "Faible à moyenne";
+	    } else if ( 0.0<= coefficient && coefficient < 0.2 ) {
+	    	qualification = "Nulle à faible";
+	    } else {
+	    	qualification = "impossible value";
+	    }
+		
+		return qualification;
+	}
+	
 	public void afficherValues() {
 		
 		for( int i = 0; i<correlationNumberOfValues; i++) {

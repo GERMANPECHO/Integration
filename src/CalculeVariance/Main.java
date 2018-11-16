@@ -27,15 +27,21 @@ public class Main {
 	static String varianceCalcule;
 	static 	Correlation coefficient;
 	
-	
+
 	public static void main(String[] args) throws IOException {
 		
 		String csvfile = "dataCorrelation.csv";
+		String csvfileEffortNote = "effnote.csv"; 
+		
 		BufferedReader br = null;
+		BufferedReader breffnote = null;
+		
 		String line = "";
+		String lineNotes = "";
 		double calcVariance;
 		String valuesNumber = "";
 		String values = "";
+		String valuesEffNote = "";
 	
 		
 		DecimalFormat df = new DecimalFormat("#.####");
@@ -46,20 +52,31 @@ public class Main {
 		
 		Vector<String> vectorValues = new Vector<String>();
 		Vector<String> vectorValuesY = new Vector<String>();
+		Vector<String> vectorValuesHeures = new Vector<String>();
+		Vector<String> vectorValuesNotes = new Vector<String>();
 		
 		try {
 			
 			LireFichier lecture = new LireFichier(csvfile);
+			LireFichier lectureEffortNote = new LireFichier(csvfileEffortNote);
+			
 			br = new BufferedReader(lecture.getReader());
+			breffnote = new BufferedReader(lectureEffortNote.getReader());
 			
 			valuesNumber = br.readLine();
+			
+			valuesEffNote = breffnote.readLine();
+			valuesEffNote = breffnote.readLine();
+			
 			String[] valuesNumberQt = valuesNumber.split(";");
+			String[] valueseffNote = valuesEffNote.split(";");
+			
 			values = valuesNumberQt[0];
 			
-			while( (line = br.readLine()) != null ) {
+	   while( (line = br.readLine()) != null ) {			
 				
 				String[] data = line.split(";");
-		//		System.out.println( " x value " + data[0] + " y value " + data[1]);
+				
 				vectorValues.add(data[0]);
 				vectorValuesY.add(data[1]);
 				
@@ -67,7 +84,21 @@ public class Main {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+		
+		while( (lineNotes = breffnote.readLine()) != null ) {			
 			
+			String[] data = lineNotes.split(";");
+			double sum = 0;
+						
+			for( int i = 1; i < 7 ; i++ ) {
+				sum = sum + Double.parseDouble(data[i].replace(',','.'));
+			}
+			
+			vectorValuesHeures.add(Double.toString(sum));
+			vectorValuesNotes.add((data[7].replace(',','.')));
+					
+		}
+	
 		
 		moyenne = getMoyenne(values,vectorValues);	
 		variance = getVariance(values,vectorValues,moyenne);
@@ -89,7 +120,12 @@ public class Main {
         System.out.println(regression.getCoeffB0());
         System.out.println(regression.getCoeffB1());
         
-/*        Scanner inScanner = new Scanner(System.in);
+        Double value = calculerCorrelation(vectorValuesNotes,vectorValuesHeures);
+                
+        System.out.println("resultat coeff correlation heures vs note " + 
+         value + " interpretation : " +  coefficient.qualifierReponse(value));
+        
+    /*    Scanner inScanner = new Scanner(System.in);
         
         System.out.println("Donnez-moi un valeur x pour calculer y");
         String valueInX = inScanner.nextLine();
