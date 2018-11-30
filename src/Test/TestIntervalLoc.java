@@ -30,23 +30,6 @@ public class TestIntervalLoc {
 				Main.calculerRacineInterval( nombreTestLocs, sommeInterval, moyenne));
 	}
 	
-	@Test
-	public void testRacineCarre( ) {
-		assertTrue( Main.calculerSqrt(extraireRacine) == 4.00 );
-	}
-
-	@Test
-	public void testRacineinterval( ) {
-		assertEquals( racineInterval, 
-				Main.calculerSqrt(Main.calculerRacineInterval(nombreLocs, sommeInterval, moyenne)),0.04);
-	}
-	
-	
-	@Test
-	public void testLimiteInf() {
-		assertEquals( intervalInf,Main.calculerIntervalStudent(quatreVingtDixPourcent,
-				Main.calculerSqrt(varianceEtape2),racineCalculInterval),0.05);
-	}
 	
 	@Test
 	public void testLimiteSup() {
