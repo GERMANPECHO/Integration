@@ -132,7 +132,7 @@ import java.util.Vector;
 	for( int i = 0; i<correlationNumberOfValues; i++) {
 		
 	       valueXcarre = Double.parseDouble(vectValuesX.get(i));
-	       valueXcarre = Math.pow(valueXcarre, 2);
+	       valueXcarre = calculePuissance(valueXcarre, 2);
 	       sum = sum + valueXcarre;
 	       vectorXcarre.add(valueXcarre);
 	}
@@ -162,7 +162,7 @@ import java.util.Vector;
 	for( int i = 0; i<correlationNumberOfValues; i++) {
 	   	 String temp = vectValuesY.get(i).replace(',','.');
 	       valueYcarre = Double.parseDouble(temp);
-	       valueYcarre = Math.pow(valueYcarre, 2);
+	       valueYcarre = calculePuissance(valueYcarre, 2);
 	       vectorYcarre.add(valueYcarre);
 	}
 	
@@ -203,6 +203,19 @@ import java.util.Vector;
 	   
 	  return sumXY;
    }
+   
+   
+   public double calculePuissance( double value, int puissance ){
+		
+		double multValue = 1;
+		
+		for( int i = 0; i < puissance; i++ ) {
+			multValue = multValue*value;
+		}
+		
+		return multValue;
+		
+	}
    /*
     * fonction calculerCoeffCorrelation
     * return double
@@ -231,8 +244,8 @@ import java.util.Vector;
 	
     sumMultXYN = sumMultXY*correlationNumberOfValues;
     sumXsumY = calculerSommeX()*calculerSommeY();
-    racineXY = (correlationNumberOfValues*sommeXcarre - Math.pow(calculerSommeX(), 2))*
-    		(correlationNumberOfValues*sommeYcarre - Math.pow(calculerSommeY(), 2)); 
+    racineXY = (correlationNumberOfValues*sommeXcarre - calculePuissance(calculerSommeX(), 2))*
+    		(correlationNumberOfValues*sommeYcarre - calculePuissance(calculerSommeY(), 2)); 
     
     
     coefficient = Math.abs((sumMultXYN - sumXsumY)/Math.sqrt((racineXY)));
