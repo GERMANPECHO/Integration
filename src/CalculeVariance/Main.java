@@ -145,7 +145,7 @@ public class Main {
       
         Double moyenneX = getMoyenne(values,vectorValues);
         
-        Double racineInterval = calculerSqrt(calculerRacineInterval(tailleLoc,sommeXinterval,moyenneX));
+        Double racineInterval = calculerSqrt(calculerRacineInterval(tailleLoc,sommeXinterval,moyenneX,values));
         
         System.out.println("racineInterval  " + tailleLoc + "   " + sommeXinterval + "  " + moyenneX);
         System.out.println("racineInterval  " + racineInterval );
@@ -153,8 +153,8 @@ public class Main {
         Double intervalQuatreVingtDix = calculerIntervalStudent(quatreVingtDixPourcent,calculerSqrt(variance_etape2),racineInterval);
         Double intervalSoixanteDix = calculerIntervalStudent(soixanteDixPourcent,calculerSqrt(variance_etape2),racineInterval);
         
-        System.out.println(intervalQuatreVingtDix);
-        System.out.println(intervalSoixanteDix);
+        System.out.println("90% certitude " + intervalQuatreVingtDix);
+        System.out.println("70% certitude " + intervalSoixanteDix);
         
    //    Scanner inScanner = new Scanner(System.in);
         
@@ -180,9 +180,9 @@ public class Main {
 		return value;
 	}
 	
-	public static double calculerRacineInterval(int tailleLOC, Double somme, Double moyenne) {
+	public static double calculerRacineInterval(int tailleLOC, Double somme, Double moyenne,String quantitePairs) {
 		
-		Double racine =  (1 + (1/10) + (calculePuissance((tailleLOC - moyenne),2)/somme));
+		Double racine =  (1 + (1/Double.parseDouble(quantitePairs)) + (calculePuissance((tailleLOC - moyenne),2)/somme));
 		
 		return racine;
 	}

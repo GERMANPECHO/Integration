@@ -23,11 +23,12 @@ public class TestIntervalLoc {
 	Double quatreVingtDixPourcent = 1.860;
     Double soixanteDixPourcent = 1.108;
     Double racineIntervalTestNeufCent = 0.00;
+    String numberOfValues = "10";
 	
 	@Before 
     public void faireAvant( ) {
 		racineIntervalTestNeufCent = Main.calculerSqrt(
-				Main.calculerRacineInterval( nombreTestLocs, sommeInterval, moyenne));
+				Main.calculerRacineInterval( nombreTestLocs, sommeInterval, moyenne,numberOfValues));
 	}
 	
 	
@@ -42,7 +43,7 @@ public class TestIntervalLoc {
 		System.out.println(racineIntervalTestNeufCent);
 		System.out.println(Main.calculerIntervalStudent(quatreVingtDixPourcent,
 				Main.calculerSqrt(varianceEtape2),racineIntervalTestNeufCent));
-		assertEquals( 387.8254, Main.calculerIntervalStudent(quatreVingtDixPourcent,
+		assertEquals( 403.0711, Main.calculerIntervalStudent(quatreVingtDixPourcent,
 				Main.calculerSqrt(varianceEtape2),racineIntervalTestNeufCent),0.01);
 	}
 	
@@ -51,7 +52,7 @@ public class TestIntervalLoc {
 		System.out.println(racineIntervalTestNeufCent);
 		System.out.println(Main.calculerIntervalStudent(soixanteDixPourcent,
 				Main.calculerSqrt(varianceEtape2),racineIntervalTestNeufCent));
-		assertEquals( 231.0271, Main.calculerIntervalStudent(soixanteDixPourcent,
+		assertEquals( 240.1090, Main.calculerIntervalStudent(soixanteDixPourcent,
 				Main.calculerSqrt(varianceEtape2),racineIntervalTestNeufCent),0.01);
 	}
 
