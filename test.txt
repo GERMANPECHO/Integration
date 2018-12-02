@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 test
 tico1
 tico2
@@ -12,3 +13,5 @@ Iam the master two
 
 volare volare
 soide
+test new changes
+
