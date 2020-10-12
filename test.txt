@@ -1,6 +1,7 @@
-<<<<<<< HEAD
+
 test
 tico1
+git rebase111111
 tico2
 repulllllllllllllllllllsion
 sykes sykes
