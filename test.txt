@@ -1,10 +1,5 @@
 
 test
-tico1
-git rebase111111
-tico2
-repulllllllllllllllllllsion
-sykes sykes
 
 voila voila
 
@@ -12,7 +7,7 @@ I AM NESTED BRANCH ONE
 i am nested branch two
 I am nested branch three
 
-
+integracionssssssssssssssssssssssssssssssss
 Iam the master
 
 Iam the master two
