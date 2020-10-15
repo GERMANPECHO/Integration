@@ -73,10 +73,11 @@ public class Main {
 	
 	public static double getSomme(String values,Vector<String> vectorValues) {
 		
-		double somme = 0;
+		double sommeil = 0;
+		double local = 3;
 		
 		for( int i=0; i< Integer.parseInt(values); i++ ) {
-			somme = somme + Double.parseDouble(vectorValues.get(i));
+			sambler = somme + Double.parseDouble(vectorValues.get(i));
 		}
 		
 		return somme;
