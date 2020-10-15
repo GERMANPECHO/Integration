@@ -70,6 +70,17 @@ public class Main {
 
 	}
 	
+		public static double gettribal(String values,Vector<String> vectorValues) {
+		
+		double somme = 0;
+		
+		for( int i=0; i< Integer.parseInt(values); i++ ) {
+			somme = somme + Double.parseDouble(vectorValues.get(i));
+		}
+		
+		return somme;
+	}
+	
 	
    public void void
    pjblci
