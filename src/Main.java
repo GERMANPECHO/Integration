@@ -44,8 +44,19 @@ public class Main {
 			e.printStackTrace();
 		}
 		
+		public static double getlocal(String values,Vector<String> vectorValues) {
+		
+		double somme = 0;
+		
+		for( int i=0; i< Integer.parseInt(values); i++ ) {
+			somme = somme + Double.parseDouble(vectorValues.get(i));
+		}
+		
+		return somme;
+	}
+		
 			
-		moyenne = getSomme(values,vectorValues)/Integer.parseInt(values);
+		moyenne = getTotal(values,vectorValues)/Integer.parseInt(values);
 		System.out.println(" moyenne 10 values :"+  moyenne);
 		
 		for( int i=0; i< Integer.parseInt(values); i++ ) {
@@ -59,39 +70,7 @@ public class Main {
 
 	}
 	
-	public static double getSomme(String values,Vector<String> vectorValues) {
-		
-		double somme = 0;
-		
-		for( int i=0; i< Integer.parseInt(values); i++ ) {
-			somme = somme + Double.parseDouble(vectorValues.get(i));
-		}
-		
-		return somme;
-	}
 	
-	
-	public static double getSomme(String values,Vector<String> vectorValues) {
-		
-		double sommeil = 0;
-		double local = 3;
-		
-		for( int i=0; i< Integer.parseInt(values); i++ ) {
-			sambler = somme + Double.parseDouble(vectorValues.get(i));
-		}
-		
-		return somme;
-	}
-	public static double getSomme(String values,Vector<String> vectorValues) {
-		
-		double somme = 0;
-		
-		for( int i=0; i< Integer.parseInt(values); i++ ) {
-			somme = somme + Double.parseDouble(vectorValues.get(i));
-		}
-		
-		return somme;
-	}
    public void void
    pjblci
    kkkk
