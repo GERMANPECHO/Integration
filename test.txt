@@ -40,4 +40,9 @@ qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweeeeeeee
 
 
 
+<<<<<<< HEAD
 fddssssssssssssssssssssssssssssssssssss
+=======
+qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeebvsssssssssssterrrrrrrrrrrrrrrrrrrrrrrrrr
+asdfffffffffffffffffffffffffffff
+>>>>>>> master
