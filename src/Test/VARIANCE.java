@@ -1,4 +1,4 @@
-package Test;
+FSAFDAFApackage Test;
 
 import static org.junit.Assert.*;
 
