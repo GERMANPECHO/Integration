@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import CalculeVariance.LireFichier;
+take on care business
 
 /*
  * TESTS
