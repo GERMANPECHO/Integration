@@ -38,8 +38,8 @@ qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweeeeeeee
 
 some changes comming from the pc
 ONE
-<<<<<<< HEAD
 NEW TWO TWO
 THREE
+
 
 
